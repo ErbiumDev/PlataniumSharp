@@ -7,6 +7,7 @@ static void ExceptionHandlerVOID(object sender, object e)
 {
     PlataniumV3.Services.Proxy.Stop();
 }
+AppDomain.CurrentDomain.ProcessExit += new EventHandler(ExceptionHandlerVOID);
 AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(ExceptionHandlerVOID);
 PlataniumV3.Services.Launcher.StartGame();
 PlataniumV3.Services.Proxy.Start(); //Start Proxy

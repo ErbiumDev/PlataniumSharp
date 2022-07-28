@@ -22,6 +22,19 @@ namespace PlataniumV3.Services
 
         public static void Start()
         {
+            Console.WriteLine("Setting up Cert...");
+            if (!CertMaker.rootCertExists())
+            {
+                if (!CertMaker.createRootCert())
+                {
+                    Console.WriteLine("Failed to Create Cert!");
+                    return;
+                }
+                if (!CertMaker.rootCertIsTrusted())
+                {
+                    CertMaker.trustRootCert();
+                }
+            }
             Console.WriteLine("Starting Proxy...");
             FiddlerCoreStartupSettings Settings = new FiddlerCoreStartupSettingsBuilder().ListenOnPort(8888).RegisterAsSystemProxy().OptimizeThreadPool().DecryptSSL().Build();
             BeforeRequest += BeforeReq;
