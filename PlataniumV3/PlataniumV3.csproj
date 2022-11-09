@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCMakeCert" Version="2.0.9" />
     <PackageReference Include="FiddlerCore.Trial" Version="5.0.2" />
   </ItemGroup>
 

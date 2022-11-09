@@ -6,7 +6,7 @@ namespace PlataniumV3.Services
     {
         public static void BeforeReq(Session Ses)
         {
-            if(Ses.hostname.Contains("ol.epicgames.com"))
+            if (Ses.hostname.Contains("epicgames.com") || Ses.PathAndQuery.Contains("epic-settings"))
             {
                 //Credits to Lawin Server <3
                 Console.WriteLine("[PROXY] Redirected: " + Ses.PathAndQuery);
@@ -15,15 +15,21 @@ namespace PlataniumV3.Services
                     Ses["x-replywithtunnel"] = "FortniteTunnel";
                     return;
                 }
-                
-                Ses.fullUrl = "https://lawinserver.milxnor.repl.co" + Ses.PathAndQuery;
+
+                Ses.fullUrl = "http://127.0.0.1:5595" + Ses.PathAndQuery;
             }
+        }
+
+        public static new void WSReq(object sender, WebSocketMessageEventArgs ARGS)
+        {
+            ARGS.oWSM.Abort();
+            return;
         }
 
         public static void Start()
         {
             Console.WriteLine("Setting up Cert...");
-            if (!CertMaker.rootCertExists())
+            if (!CertMaker.rootCertExists() || !CertMaker.rootCertIsTrusted())
             {
                 if (!CertMaker.createRootCert())
                 {
@@ -36,8 +42,9 @@ namespace PlataniumV3.Services
                 }
             }
             Console.WriteLine("Starting Proxy...");
-            FiddlerCoreStartupSettings Settings = new FiddlerCoreStartupSettingsBuilder().ListenOnPort(8888).RegisterAsSystemProxy().OptimizeThreadPool().DecryptSSL().Build();
+            FiddlerCoreStartupSettings Settings = new FiddlerCoreStartupSettingsBuilder().ListenOnPort(8888).OptimizeThreadPool().DecryptSSL().Build();
             BeforeRequest += BeforeReq;
+            OnWebSocketMessage += WSReq;
             Startup(Settings);
             Console.WriteLine("Proxy Started!");
         }
