@@ -9,6 +9,6 @@ This Project uses FiddlerCore to Create a Proxy server that redirects all Fortni
 ### Proxy
 Using [Telerik's FiddlerCore](https://www.telerik.com/fiddlercore) this Project creates a Proxy Server that redirects Fortnite Requests to our own C# Backend (more info on that below).
 <br>
-(Removed For Now)Unlike the Lawin Server executable this **DOES NOT** Use the System Proxy and makes it easy to use other applications while still running the launcher!
+This **DOES NOT** Use the System Proxy making it easy to use other applications while still running the launcher!
 ### Backend
 **WIP**
