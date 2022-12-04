@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace PlataniumV3.Services
 {
+    //Not Mine but idk where i got it from :/
     public class SigScan
     {
         public const int PROCESS_ALL_ACCESS = 0x1F0FFF;
