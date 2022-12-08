@@ -1,5 +1,9 @@
 # PlataniumV3
 Fortnite Proxy Based Universal Private Server
+<br>
+Work's on Latest and possibly a few versions before Byfron
+<br>
+Inspired by [Lawin Server](https://github.com/PsychoPast/LawinServer)
 # How it works
 ## Basic Explanation
 This Project uses FiddlerCore to Create a Proxy server that redirects all Fortnite Requests and can also Launch Fortnite without EAC/Battle Eye!
