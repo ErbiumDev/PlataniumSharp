@@ -1,8 +1,15 @@
-﻿//Called on Startup
+global using Serilog;
 
+﻿//Called on Startup
 Console.Title = "PlataniumV3 | Made by GD";
 Console.WriteLine("Welcome to PlataniumV3!");
 Console.WriteLine("Setting Up...");
+
+// logger 
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Verbose()
+    .WriteTo.Console()
+    .CreateLogger();
 
 static void ExceptionHandlerVOID(object sender, object e)
 {
