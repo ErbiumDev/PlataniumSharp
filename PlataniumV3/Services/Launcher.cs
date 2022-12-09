@@ -97,7 +97,7 @@ namespace PlataniumV3.Services
                 Addr = SS.FindPattern("41 39 28 0F 95 C0 88 83 50 04", out Time);
             }
             SigScan.WriteProcessMemory(SigScan.OpenProcess(SigScan.PROCESS_ALL_ACCESS, false, FN.Id), (IntPtr)Addr, VerifyPeerPatch, VerifyPeerPatch.Length, out IntPtr bytesWritten);
-            Console.WriteLine("Addr:" + Addr);
+            Log.Information("Addr:" + Addr);
             
             ResumeProcess(FN.Id);
             //Process.Start("cmd.exe", "/C start com.epicgames.launcher://apps/Fortnite?action=launch&silent=true"); //Start Fortnite
