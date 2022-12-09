@@ -16,7 +16,7 @@ namespace PlataniumV3.Services
                 }
                 else
                 {
-                    Console.WriteLine("[PROXY] Redirected: " + Ses.PathAndQuery);
+                    Log.Information("[PROXY] Redirected: " + Ses.PathAndQuery);
                 }
 
                 Ses.fullUrl = "http://127.0.0.1:5595" + Ses.PathAndQuery;
@@ -32,12 +32,12 @@ namespace PlataniumV3.Services
 
         public static void Start()
         {
-            Console.WriteLine("Setting up Cert...");
+            Log.Information("Setting up Cert...");
             if (!CertMaker.rootCertExists() || !CertMaker.rootCertIsTrusted())
             {
                 if (!CertMaker.createRootCert())
                 {
-                    Console.WriteLine("Failed to Create Cert!");
+                    Log.Error("Failed to Create Cert!");
                     return;
                 }
                 if (!CertMaker.rootCertIsTrusted())
@@ -45,19 +45,19 @@ namespace PlataniumV3.Services
                     CertMaker.trustRootCert();
                 }
             }
-            Console.WriteLine("Starting Proxy...");
+            Log.Information("Starting Proxy...");
             FiddlerCoreStartupSettings Settings = new FiddlerCoreStartupSettingsBuilder().ListenOnPort(8888).OptimizeThreadPool().DecryptSSL().RegisterAsSystemProxy().Build();
             BeforeRequest += BeforeReq;
             OnWebSocketMessage += WSReq;
             Startup(Settings);
-            Console.WriteLine("Proxy Started!");
+            Log.Information("Proxy Started!");
         }
 
         public static void Stop()
         {
-            Console.WriteLine("Stopping Proxy...");
+            Log.Information("Stopping Proxy...");
             Shutdown();
-            Console.WriteLine("Proxy Stopped!");
+            Log.Information("Proxy Stopped!");
         }
     }
 }
