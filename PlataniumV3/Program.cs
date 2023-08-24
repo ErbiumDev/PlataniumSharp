@@ -1,8 +1,8 @@
 global using Serilog;
 
 ﻿//Called on Startup
-Console.Title = "PlataniumV3 | Made by GD";
-Console.WriteLine("Welcome to PlataniumV3!");
+Console.Title = "PlataniumSharp | Made by GD";
+Console.WriteLine("Welcome to PlataniumSharp!");
 Console.WriteLine("Setting Up...");
 
 // logger 
@@ -22,7 +22,9 @@ AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler
 PlataniumV3.Services.Proxy.Start(); //Start Proxy
 Console.WriteLine("Enter Game Path: ");
 string Path = Console.ReadLine();
-PlataniumV3.Services.Launcher.StartGame(Path);
+Console.WriteLine("Enter Username: ");
+string DN = Console.ReadLine();
+PlataniumV3.Services.Launcher.StartGame(Path, DN);
 Console.WriteLine("Press Enter to Close.");
 Console.ReadLine();
 PlataniumV3.Services.Proxy.Stop();
