@@ -1,4 +1,5 @@
 # PlataniumSharp
+**BROKEN ON LATEST**
 Fortnite Proxy Based Universal Private Server
 <br>
 Work's on Latest and possibly a few versions before Byfron
