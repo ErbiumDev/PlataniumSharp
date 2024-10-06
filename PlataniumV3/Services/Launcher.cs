@@ -94,7 +94,7 @@ namespace PlataniumV3.Services
             if (Addr == 0)
             {
                 //Older Versions
-                Addr = SS.FindPattern("41 39 28 0F 95 C0 88 83 50 04", out Time);
+                Addr = SS.FindPattern("41 39 28 0F 95 C0 88 83 50", out Time);
             }
             SigScan.WriteProcessMemory(SigScan.OpenProcess(SigScan.PROCESS_ALL_ACCESS, false, FN.Id), (IntPtr)Addr, VerifyPeerPatch, VerifyPeerPatch.Length, out IntPtr bytesWritten);
             Log.Information("Addr:" + Addr);
