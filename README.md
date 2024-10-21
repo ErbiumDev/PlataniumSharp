@@ -1,7 +1,9 @@
 # PlataniumSharp
 Fortnite Proxy Based Universal Private Server
 <br>
-Work's on Latest and possibly a few versions before Byfron
+Work's on Latest
+<br>
+Press Enter in the console after the EAC Loader pops up
 <br>
 Inspired by [Lawin Server](https://github.com/PsychoPast/LawinServer)
 # How it works

@@ -19,12 +19,10 @@ static void ExceptionHandlerVOID(object sender, object e)
 
 AppDomain.CurrentDomain.ProcessExit += new EventHandler(ExceptionHandlerVOID);
 AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(ExceptionHandlerVOID);
+PlataniumV3.Services.Launcher.StartGame();
+Console.WriteLine("Press Enter when Game Opens.");
+Console.ReadLine();
 PlataniumV3.Services.Proxy.Start(); //Start Proxy
-Console.WriteLine("Enter Game Path: ");
-string Path = Console.ReadLine();
-Console.WriteLine("Enter Username: ");
-string DN = Console.ReadLine();
-PlataniumV3.Services.Launcher.StartGame(Path, DN);
 Console.WriteLine("Press Enter to Close.");
 Console.ReadLine();
 PlataniumV3.Services.Proxy.Stop();
