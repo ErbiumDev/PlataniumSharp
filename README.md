@@ -1,9 +1,7 @@
+## BROKEN ON LATEST
+### If you are using this for the latest version of the game use the [Latest Branch](https://github.com/ErbiumDev/PlataniumSharp/tree/Latest)
 # PlataniumSharp
-**BROKEN ON LATEST**
-<br>
 Fortnite Proxy Based Universal Private Server
-<br>
-Work's on Latest and possibly a few versions before Byfron
 <br>
 Inspired by [Lawin Server](https://github.com/PsychoPast/LawinServer)
 # How it works
