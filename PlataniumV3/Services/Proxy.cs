@@ -24,7 +24,7 @@ namespace PlataniumV3.Services
         }
 
         //Fixes a weird WebSocket crash
-        public static new void WSReq(object sender, WebSocketMessageEventArgs ARGS)
+        public static void WSReq(object? sender, WebSocketMessageEventArgs ARGS)
         {
             ARGS.oWSM.Abort();
             return;
@@ -48,7 +48,7 @@ namespace PlataniumV3.Services
             Serilog.Log.Information("Starting Proxy...");
             FiddlerCoreStartupSettings Settings = new FiddlerCoreStartupSettingsBuilder().ListenOnPort(8888).OptimizeThreadPool().DecryptSSL().RegisterAsSystemProxy().Build();
             BeforeRequest += BeforeReq;
-            OnWebSocketMessage += WSReq;
+            //OnWebSocketMessage += WSReq;
             Startup(Settings);
             Serilog.Log.Information("Proxy Started!");
         }

@@ -11,10 +11,9 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateLogger();
 
-static void ExceptionHandlerVOID(object sender, object e)
+static void ExceptionHandlerVOID(object? sender, object e)
 {
     PlataniumV3.Services.Proxy.Stop();
-    PlataniumV3.Services.Launcher.CloseGame();
 }
 
 AppDomain.CurrentDomain.ProcessExit += new EventHandler(ExceptionHandlerVOID);
@@ -26,4 +25,3 @@ PlataniumV3.Services.Proxy.Start(); //Start Proxy
 Console.WriteLine("Press Enter to Close.");
 Console.ReadLine();
 PlataniumV3.Services.Proxy.Stop();
-PlataniumV3.Services.Launcher.CloseGame();
